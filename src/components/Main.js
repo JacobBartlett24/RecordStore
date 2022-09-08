@@ -8,25 +8,33 @@ width: 300px;
 height: 300px;
 border: 3px solid black;
 margin: 30px;
+overflow: hidden;
 &:hover{
   background-color: black;
 }
 
 `
 const MainStyle = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-margin: 5vh 10vw;
+display: grid;
+grid-template-rows: 30vh 60vh;
+margin: 5vh 10vw 0 10vw;
+justify-items: center;
 
 `
 
 const MainImage = styled.div `
+overflow: hidden;
 background-color: red;
 width: 300px;
 height 300px;
 border: 3px solid black;
 
+`
+const ClickableContentHolderWrapper = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
 `
 
 class AppComponent extends Component{
@@ -48,16 +56,21 @@ class AppComponent extends Component{
   render(){
     return(
       <div>
-        <MainImage>
-        s
-        </MainImage>
+        
         <MainStyle>       
-            <ClickableContentHolder>
-              <a href="#something"><img src={logo} onClick={this.handleImageClick} alt="" /></a>
-            </ClickableContentHolder>
-            <ClickableContentHolder>
-            <a href="#something"><img src={logo} alt="" /></a>
-            </ClickableContentHolder>
+            <MainImage>
+            <img src={logo} alt="" />
+            </MainImage>
+            
+              <ClickableContentHolderWrapper>
+                <ClickableContentHolder>
+                  <a href="#something"><img src={logo} onClick={this.handleImageClick} alt="" /></a>
+                </ClickableContentHolder>
+                <ClickableContentHolder>
+                <a href="#something"><img src={logo} alt="" /></a>
+                </ClickableContentHolder>
+              </ClickableContentHolderWrapper>
+            
         </MainStyle>
       </div>
     );
