@@ -10,7 +10,7 @@ class App extends Component{
     return(
       <div>
         <Header title = 'Record Store'/>
-        <Main/>
+        <Main src = 'src/images/sample-stamp-rubber-style-red-260nw-1811246308.png'/>
       </div>
     );
   }
