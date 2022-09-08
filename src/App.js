@@ -9,8 +9,8 @@ class App extends Component{
   render(){
     return(
       <div>
-        <p>asdasd</p>
         <Header title = 'Record Store'/>
+        <Main/>
       </div>
     );
   }
