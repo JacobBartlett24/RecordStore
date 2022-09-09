@@ -8,12 +8,11 @@ class App extends Component{
   
   render(){
     return(
-      
-      <body style={{margin: 0 + "px"}}>  
+      <div>  
         <Header title = 'Record Store'/>
         <Main />
         <Footer title = 'Footer'/>
-      </body>
+      </div>
     );
   }
 }

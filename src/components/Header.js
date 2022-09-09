@@ -1,9 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
-import Navbar from "./Navbar";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faRecordVinyl } from '@fortawesome/free-solid-svg-icons';
 
 const HeaderStyle = styled.div`
   background-color: black;
@@ -20,37 +19,52 @@ const HeaderStyle = styled.div`
     margin: 0px;
   }
 `
-const SideBarStyle = styled.div`
-  display: hidden;
 
-`
-
-const SideBarHtml = `
-<div>
-  <ul>
-    <li>Store</li>
-    <li>About Us</li>
-    <li>FAQ</li>
-    <li>Shipping Info</li>
-    <li>item</li>
-    <li>item</li>
-  </ul>
-</div>
+var NavbarStyle = styled.div`
+  display: none;
 `
 
 
-const Header = (props) => {
 
-  const {title} = props
+class Header extends Component{
 
+  constructor(props){
+
+    super(props)
+
+    this.state = {
+
+    }
+  }
+
+  enableSidebar = (e) =>{
+    NavbarStyle = `
+      display: show;
+    `
+  
+    console.log('clicked');
+  }
+
+  render(){
+    const {title} = this.props;
   return(
-    
-    <HeaderStyle>
-      <a href = "#ss" onClick={Navbar}><FontAwesomeIcon icon={faBars} /></a>
-      <h1>{title}</h1>
-      <a href = "#ss">Menu</a>
-    </HeaderStyle>
-  );
+    <div>
+      
+      <HeaderStyle>
+        <a href="#ss" onClick={this.enableSidebar}><FontAwesomeIcon icon={faBars} /></a>
+        <h1>{title}</h1>
+        <a href = "#ss">Menu</a>
+      </HeaderStyle>
+      <NavbarStyle>
+        <ul>
+          <li><FontAwesomeIcon icon={faRecordVinyl} />Store</li>
+          <li>About Us</li>
+          <li>FAQ</li>
+          <li>Shipping Info</li>
+        </ul>
+      </NavbarStyle>
+    </div>
+  );}
 }
 
 export default Header;
