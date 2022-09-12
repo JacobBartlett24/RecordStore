@@ -6,9 +6,16 @@ import Footer from "./Footer"
 
 const StoreStyle = styled.div`
 display: grid;
-grid-template-rows: 30vh 60vh;
-margin: 5vh 10vw 0 10vw;
+grid-template-rows: repeat(5, 18vh);
+grid-template-columns: repeat(5, 15vw);
+margin: 5vh 10vw 5vh 10vw;
 justify-items: center;
+
+div{
+  width: 15vw;
+  height: 18vh;
+  border: 3px solid black;
+}
 `
 
 
@@ -16,13 +23,33 @@ function Store(props){
 
 
   return(
-    
-    <div>
-      <StoreStyle>
-        
-      </StoreStyle>
-    </div>
-    
+    <StoreStyle>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </StoreStyle>
   );
   
 }
