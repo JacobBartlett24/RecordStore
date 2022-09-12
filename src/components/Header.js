@@ -56,19 +56,17 @@ function Header(props){
         <a href = "#ss"><FontAwesomeIcon icon={faCartShopping} /></a>
       </HeaderStyle>
       <NavbarStyle className={navbar ? "" : "active"}>
-        <ul>
-          <li>
-          
-            <FontAwesomeIcon icon={faRecordVinyl} />
-            Store
-          
-          </li>
-          <li><FontAwesomeIcon icon={faRecordVinyl} /> About Us</li>
-          <li><FontAwesomeIcon icon={faRecordVinyl} /> FAQ</li>
-          <li><FontAwesomeIcon icon={faRecordVinyl} /> Shipping Info</li>
-        </ul>
-        s
-        
+          <ul>
+            <Link to="/store">
+              <li>
+                <FontAwesomeIcon icon={faRecordVinyl} />
+                Store
+              </li>
+            </Link>
+            <li><FontAwesomeIcon icon={faRecordVinyl} /> About Us</li>
+            <li><FontAwesomeIcon icon={faRecordVinyl} /> FAQ</li>
+            <li><FontAwesomeIcon icon={faRecordVinyl} /> Shipping Info</li>
+          </ul> 
       </NavbarStyle>
     </div>
   );
