@@ -34,6 +34,8 @@ const NavbarStyle = styled.div`
   
   display: inline-block;
   background-color: gray;
+  
+    
 `
 
 
