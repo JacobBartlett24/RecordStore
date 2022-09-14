@@ -11,7 +11,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Store from "./Store"
+
 
 const HeaderStyle = styled.div`
   background-color: black;
@@ -67,7 +67,12 @@ function Header(props){
             </Link>
             <li><FontAwesomeIcon icon={faRecordVinyl} /> About Us</li>
             <li><FontAwesomeIcon icon={faRecordVinyl} /> FAQ</li>
-            <li><FontAwesomeIcon icon={faRecordVinyl} /> Shipping Info</li>
+            <Link to="/admin">
+              <li>
+                <FontAwesomeIcon icon={faRecordVinyl} />
+                Admin Menu
+              </li>
+            </Link>
           </ul> 
       </NavbarStyle>
     </div>

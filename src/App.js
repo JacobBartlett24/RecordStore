@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import Store from "./components/Store"
+import Admin from "./components/Admin"
 import styled from "styled-components";
 import "./App.css";
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
@@ -13,10 +14,10 @@ function App(){
     <div>  
       <Router>
       <Header title = 'Record Store'/>
-      
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/store" element={<Store />} />
+          <Route path="/admin" element={<Admin />}/>
         </Routes>
       </Router>
       <Footer title = 'Footer'/>
