@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import logo from "../images/sample-stamp-rubber-style-red-260nw-1811246308.png";
+import { useState } from "react";
 
 const AdminMenuStyle= styled.div`
 height: 100vh;
@@ -26,21 +27,85 @@ input{
 `
 
 function Admin(props){
+
+  const [value,setValues] = useState({
+    name: '',
+    imgLink: '',
+    price: '',
+  });
+  
+
+  function handleSubmit(event){
+    console.log('here');
+    alert('A name was submitted: ' + value.name);
+    event.preventDefault();
+  }
+
+  function handleChangeLink(event){
+    event.persist();
+    setValues((value) => ({
+      ...value,
+      imgLink: event.target.value,
+    }))
+    console.log(value.imgLink)
+  }
+
+  function handleChangeName(event){
+    event.persist();
+    setValues((value) => ({
+      ...value,
+      name: event.target.value,
+    }))
+    console.log(value.name)
+  }
+
+  function handleChangePrice(event){
+    event.persist();
+    setValues((value) => ({
+      ...value,
+      price: event.target.value,
+    }))
+    console.log(value.price)
+  }
+
   return(
     <AdminMenuStyle>
       <FormStyle>
         <h1>Admin Menu</h1>
-        <form>
+        <form 
+          onSubmit={handleSubmit}>
+
+          <label>
+            Link to IMG:
+          <input 
+            type='text' 
+            name={value.imgLink}
+            onChange={handleChangeLink}/>  
+          </label>
+
           <label>
             Artist Name:
+            <input 
+              type='text' 
+              name={value.name}
+              onChange={handleChangeName}/>
           </label>
-          <input></input>
+          
           <label>
             Price:
+            <input 
+              type='text' 
+              name={value.price}
+              onChange={handleChangePrice}/>
           </label>
-          <input></input>
+
+          <input 
+          type = 'submit' 
+          value= 'Add Title'
+          onSubmit={handleSubmit}/>
+            
         </form>
-        <button>Add Vinyl</button>
+        
       </FormStyle>
     </AdminMenuStyle>
   )
