@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import logo from "../images/sample-stamp-rubber-style-red-260nw-1811246308.png"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const ClickableContentHolder = styled.div`
 background-color: red;
@@ -19,7 +25,6 @@ display: grid;
 grid-template-rows: 30vh 60vh;
 margin: 5vh 10vw 0 10vw;
 justify-items: center;
-
 `
 
 const MainImage = styled.div `
@@ -63,9 +68,11 @@ class AppComponent extends Component{
             </MainImage>
             
               <ClickableContentHolderWrapper>
+                <Link to = "/store">
                 <ClickableContentHolder>
                   <a href="#something"><img src={logo} onClick={this.handleImageClick} alt="" /></a>
                 </ClickableContentHolder>
+                </Link>
                 <ClickableContentHolder>
                 <a href="#something"><img src={logo} alt="" /></a>
                 </ClickableContentHolder>
