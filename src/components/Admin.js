@@ -33,22 +33,21 @@ function Admin(props){
     imgLink: '',
     price: '',
   });
-  
-
-  function jsonVinyl(){
-  
-  }
 
   function handleSubmit(event){
-    
-    let vinyl ={
+    let str = stringifyDictionary();
+    alert('Vinyl Added' + str);
+    event.preventDefault();
+  }
+
+  function stringifyDictionary() {
+    let vinyl = {
       'name': value.name,
       'price': value.price,
       'imgLink': value.imgLink,
     };
-    let str = JSON.stringify(vinyl,null,4);
-    alert('Vinyl Added/n' + str);
-    event.preventDefault();
+    let str = JSON.stringify(vinyl, null, 4);
+    return str;
   }
 
   function handleChangeLink(event){
