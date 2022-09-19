@@ -35,9 +35,19 @@ function Admin(props){
   });
   
 
+  function jsonVinyl(){
+  
+  }
+
   function handleSubmit(event){
-    console.log('here');
-    alert('A name was submitted: ' + value.name);
+    
+    let vinyl ={
+      'name': value.name,
+      'price': value.price,
+      'imgLink': value.imgLink,
+    };
+    let str = JSON.stringify(vinyl,null,4);
+    alert('Vinyl Added/n' + str);
     event.preventDefault();
   }
 
@@ -46,8 +56,7 @@ function Admin(props){
     setValues((value) => ({
       ...value,
       imgLink: event.target.value,
-    }))
-    console.log(value.imgLink)
+    }));
   }
 
   function handleChangeName(event){
@@ -55,8 +64,7 @@ function Admin(props){
     setValues((value) => ({
       ...value,
       name: event.target.value,
-    }))
-    console.log(value.name)
+    }));
   }
 
   function handleChangePrice(event){
@@ -64,8 +72,7 @@ function Admin(props){
     setValues((value) => ({
       ...value,
       price: event.target.value,
-    }))
-    console.log(value.price)
+    }));
   }
 
   return(
