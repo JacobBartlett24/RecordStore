@@ -3,6 +3,8 @@ import styled from "styled-components";
 import logo from "../images/sample-stamp-rubber-style-red-260nw-1811246308.png";
 import { useState } from "react";
 
+const axios = require('axios');
+
 const AdminMenuStyle= styled.div`
 height: 100vh;
 width: 100vw;
@@ -37,6 +39,13 @@ function Admin(props){
   function handleSubmit(event){
     let str = stringifyDictionary();
     alert('Vinyl Added' + str);
+    axios.post('http://localhost:3002/api/insert', {
+      name: value.name, 
+      price: value.price
+    }).then(() =>{
+      alert('success');
+    }
+    )
     event.preventDefault();
   }
 
