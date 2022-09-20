@@ -26,6 +26,15 @@ app.post("/api/insert", (req,res)=>{
   db.query(sqlInsert, [title,price], ((err,result) =>{console.log(result)}));
 });
 
+app.post("/api/delete", (req,res)=>{
+
+  const title = req.body.name;
+  
+  const sqlDelete = 
+    'DELETE FROM Vinyls (title) VALUES (?)';
+  db.query(sqlDelete, [title], ((err,result) => {console.log(result)}))
+})
+
 app.listen(3002, () => {
 console.log('hello worsssld');
 });
