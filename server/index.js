@@ -31,7 +31,7 @@ app.post("/api/delete", (req,res)=>{
   const title = req.body.name;
   
   const sqlDelete = 
-    'DELETE FROM Vinyls (title) VALUES (?)';
+    'DELETE FROM Vinyls WHERE title=(?)';
   db.query(sqlDelete, [title], ((err,result) => {console.log(result)}))
 })
 

@@ -28,6 +28,10 @@ input{
 }
 `
 
+const ButtonStyle = styled.div`
+  display: inline-block;
+`
+
 function Admin(props){
 
   const [value,setValues] = useState({
@@ -40,6 +44,19 @@ function Admin(props){
     let str = stringifyDictionary();
     alert('Vinyl Added' + str);
     axios.post('http://localhost:3002/api/insert', {
+      name: value.name, 
+      price: value.price
+    }).then(() =>{
+      alert('success');
+    }
+    )
+    event.preventDefault();
+  }
+
+  function handleDelete(event){
+    let str = stringifyDictionary();
+    alert('Vinyl Deleted' + str);
+    axios.post('http://localhost:3002/api/delete', {
       name: value.name, 
       price: value.price
     }).then(() =>{
@@ -114,11 +131,17 @@ function Admin(props){
               onChange={handleChangePrice}/>
           </label>
 
-          <input 
-          type = 'submit' 
-          value= 'Add Title'
-          onSubmit={handleSubmit}/>
-            
+          <ButtonStyle>
+            <input
+            type = 'submit'
+            value= 'Add Title'
+            onSubmit={handleSubmit}/>
+            <input
+            type='button'
+            value= 'Delete Title'
+            onClick={handleDelete}
+            />
+          </ButtonStyle> 
         </form>
         
       </FormStyle>

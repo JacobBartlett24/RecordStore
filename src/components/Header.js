@@ -34,8 +34,17 @@ const NavbarStyle = styled.div`
   
   display: inline-block;
   background-color: gray;
-  
-    
+  ul{
+    padding: 1rem;
+  }
+
+  a{
+    text-decoration: none;
+  }
+   
+  li{
+    text-decoration: none;
+  }
 `
 
 
@@ -60,7 +69,7 @@ function Header(props){
       <NavbarStyle className={navbar ? "" : "active"}>
           <ul>
             <Link to="/store">
-              <li>
+              <li >
                 <FontAwesomeIcon icon={faRecordVinyl} />
                 Store
               </li>
