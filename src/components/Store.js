@@ -1,7 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 
 import styled from "styled-components";
 import logo from "../images/sample-stamp-rubber-style-red-260nw-1811246308.png";
+import { useState } from "react";
+
+const axios = require('axios');
+const url = 'htt[://localhost:5000/'
 
 const StoreStyle = styled.div`
 display: grid;
@@ -27,14 +31,26 @@ div{
 
 function Store(props){
 
+  const [vinyList, setVinylList] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:3002/api/get')
+    .then((res) => {
+      setVinylList(res.data)
+    })
+  }, [])
+
   return(
     <StoreStyle>
-      <div>
-        <img src={logo} alt="">
-        </img>
-        <h1>1</h1>
-        <button>Add To Cart</button>
-      </div>
+      {vinyList.map((val) => {
+        return(
+        <div> 
+          <img src={logo} alt="" />
+          <h1>{val.title}</h1>
+          <button>Add To Cart</button>
+        </div>
+        )
+      })}
     </StoreStyle>
   );
   
