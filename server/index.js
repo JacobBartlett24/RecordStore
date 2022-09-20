@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const db = mysql.createPool({
   host: 'localhost',
@@ -9,10 +11,19 @@ const db = mysql.createPool({
   database: 'vinyls',
 });
 
-app.get('/', (req,res) => {
-  
-  
-  res.send('hello worlsssd');
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.post("/api/insert", (req,res)=>{
+
+  const title = req.body.name;
+  const price = req.body.price;
+
+  const sqlInsert = 
+    'INSERT INTO Vinyls (title, price) VALUES (?,?)';
+
+  db.query(sqlInsert, [title,price], ((err,result) =>{console.log(result)}));
 });
 
 app.listen(3002, () => {
