@@ -52,6 +52,7 @@ const NavbarStyle = styled.div`
 function Header(props){
 
   const [navbar, navbarEnabled] = useState(false);
+  const [cart, cartEnabled] = useState(false)
 
   const toggler = () =>{
 
@@ -64,7 +65,9 @@ function Header(props){
       <HeaderStyle>
         <a href="#ss" onClick={toggler}><FontAwesomeIcon icon={faBars} /></a>
         <h1>{props.title}</h1>
-        <a href = "#ss"><FontAwesomeIcon icon={faCartShopping} /></a>
+        <Link to = '/cart'>
+          <a href = "#ss"><FontAwesomeIcon icon={faCartShopping} /></a>
+        </Link>
       </HeaderStyle>
       <NavbarStyle className={navbar ? "" : "active"}>
           <ul>

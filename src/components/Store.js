@@ -17,7 +17,7 @@ justify-items: center;
 
 div{
   width: 100%;
-  height: 100%;
+  height: 25rem;
   border: 3px solid black;
   display: flex;
   padding: 1rem;
