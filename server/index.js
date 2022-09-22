@@ -25,6 +25,17 @@ db.query(sqlSelect, (err,result) =>{
 
 })
 
+app.post("/api/insert/cart", (req,res)=>{
+
+  const title = req.body.name;
+  const price = req.body.price;
+
+  const sqlInsertCart = 
+    'INSERT INTO Cart (title, price) VALUES (?,?)';
+
+  db.query(sqlInsertCart, [title,price], ((err,result) =>{console.log(result)}));
+});
+
 app.post("/api/insert", (req,res)=>{
 
   const title = req.body.name;

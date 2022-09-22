@@ -20,7 +20,7 @@ align-items: center;
 justify-content: center;
 background-color: #f2f2f2;
 border-radius: 3px;
-overflow: scroll;
+overflow-y: scroll;
 input{
   margin: 1rem 0 1rem 0;
   display: block;
@@ -30,11 +30,13 @@ input{
 
 function Cart(props){
   
-
   return(
     <CartStyle>
       <FormStyle>
         <h1>Cart</h1>
+        <div>
+
+        </div>
       </FormStyle>
     </CartStyle>
   );

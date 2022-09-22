@@ -32,6 +32,17 @@ div{
 function Store(props){
 
   const [vinyList, setVinylList] = useState([]);
+  const [cart,updateCart] = useState([]);
+
+  const addToCart = (e) =>{
+      
+    axios.post('http://localhost:3002/api/insert/cart', {
+      name: e.currentTarget.previousSibling.textContent, 
+      price: null,
+    }).then(() =>{
+      alert(e.currentTarget.previousSibling.textContent+ 'in cart');
+    })
+  }
 
   useEffect(() => {
     axios.get('http://localhost:3002/api/get')
@@ -47,7 +58,7 @@ function Store(props){
         <div> 
           <img src={logo} alt="" />
           <h1>{val.title}</h1>
-          <button>Add To Cart</button>
+          <button onClick={addToCart}>Add To Cart</button>
         </div>
         )
       })}
