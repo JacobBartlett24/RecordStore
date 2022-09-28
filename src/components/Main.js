@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import logo from "../images/sample-stamp-rubber-style-red-260nw-1811246308.png"
+import logo from "../images/image-from-rawpixel-id-6338463-png.png"
 import vinyl from "../images/vinyl_PNG63.png"
 import shirt from "../images/6298b026a65cf80bcf9dce061e9b79c9.png"
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -17,9 +18,11 @@ margin: 0px 100px 0px 100px;
 overflow: hidden;
 `
 const MainStyle = styled.div`
+background-color: gray;
 display: grid;
 grid-template-rows: 30vh 60vh;
-margin: 5vh 10vw 0 10vw;
+grid-gap: 5rem 16rem;
+padding: 5vh 5vw 5vh 5vw;
 justify-items: center;
 `
 
@@ -28,8 +31,12 @@ overflow: hidden;
 
 width: 300px;
 height 300px;
-border: 3px solid black;
 
+#logo{
+  overflow: hidden;
+  width: 300px;
+  height 300px; 
+}
 `
 const ClickableContentHolderWrapper = styled.div`
 display: flex;
@@ -73,9 +80,8 @@ class AppComponent extends Component{
         
         <MainStyle>       
             <MainImage>
-            <img src={logo} alt="" />
+              <img id = 'logo' src={logo} alt="" />
             </MainImage>
-            
               <ClickableContentHolderWrapper>
                 <Link to = "/store">
                 <ClickableContentHolder>
