@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 
 
+
 const HeaderStyle = styled.div`
   background-color: black;
   color: white;
@@ -64,7 +65,9 @@ function Header(props){
     <div style={{height: "inherit"}}>
       <HeaderStyle>
         <a href="#ss" onClick={toggler}><FontAwesomeIcon icon={faBars} /></a>
-        <h1>{props.title}</h1>
+        <Link to = '/'>
+          <h1>{props.title}</h1>
+        </Link>
         <Link to = '/cart'>
           <a href = "#ss"><FontAwesomeIcon icon={faCartShopping} /></a>
         </Link>
